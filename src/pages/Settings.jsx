@@ -4,7 +4,7 @@ import { Save, Building2, Phone, Mail, MapPin, FileText, CreditCard, Bell, Shiel
 const sections = [
   { id: 'business', label: 'Business Info', icon: Building2 },
   { id: 'booking', label: 'Booking Policy', icon: FileText },
-  { id: 'payment', label: 'Payment Gateway', icon: CreditCard },
+  // { id: 'payment', label: 'Payment Gateway', icon: CreditCard },
   { id: 'notifications', label: 'Notifications', icon: Bell },
   { id: 'security', label: 'Security', icon: Shield },
 ];
@@ -121,6 +121,7 @@ export default function Settings() {
             </div>
           )}
 
+{/* 
           {active === 'payment' && (
             <div className="space-y-5">
               <h3 className="text-base font-semibold text-white border-b border-[#2a2a2a] pb-3">Payment Gateway</h3>
@@ -163,6 +164,7 @@ export default function Settings() {
               </div>
             </div>
           )}
+*/}
 
           {active === 'notifications' && (
             <div className="space-y-5">

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard, Calendar, Tag, Package, BookOpen,
-  Wind, Image, Users, Camera, BarChart2, Settings, X, Zap
+  Wind, Image, Users, Camera, BarChart2, Settings, X, Zap, Ticket
 } from 'lucide-react';
 
 const navItems = [
@@ -14,6 +14,7 @@ const navItems = [
   { path: '/portfolio', label: 'Portfolio', icon: Image },
   { path: '/users', label: 'Users', icon: Users },
   { path: '/photographers', label: 'Photographers', icon: Camera },
+  { path: '/promo-codes', label: 'Promo Codes', icon: Ticket },
   { path: '/reports', label: 'Reports', icon: BarChart2 },
   { path: '/settings', label: 'Settings', icon: Settings },
 ];

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Plus, Pencil, Trash2, Clock, Package as PkgIcon, Sparkles } from 'lucide-react';
-import { packages as initial } from '../data/mockData';
+import { Plus, Pencil, Trash2, Clock, Package as PkgIcon, Sparkles, FolderTree } from 'lucide-react';
+import { packages as initial, subcategories } from '../data/mockData';
 import Modal from '../components/Modal';
 
 // Category color mapping
@@ -20,7 +20,16 @@ export default function Packages() {
   const [modalOpen, setModalOpen] = useState(false);
   const [editing, setEditing] = useState(null);
   const [filterCat, setFilterCat] = useState('All');
-  const [form, setForm] = useState({ name: '', category: 'Wedding', price: '', duration: '', deliverables: '', description: '', image: '📸' });
+  const [form, setForm] = useState({ 
+    name: '', 
+    category: 'Wedding', 
+    subcategory: '',
+    price: '', 
+    duration: '', 
+    deliverables: '', 
+    description: '', 
+    image: '📸' 
+  });
 
   // Categories include 'Event' again
   const categories = ['All', 'Wedding', 'Event', 'Business', 'Drone Show'];
@@ -28,15 +37,38 @@ export default function Packages() {
   // Filter items based on category
   const filtered = filterCat === 'All' ? items : items.filter(i => i.category === filterCat);
 
+  // Get available subcategories based on current form category
+  const availableSubcats = subcategories.filter(s => s.categoryName === form.category);
+
   const openAdd = () => { 
+    const initialCat = filterCat === 'All' ? 'Wedding' : filterCat;
+    const initialSub = subcategories.find(s => s.categoryName === initialCat)?.name || '';
     setEditing(null); 
-    setForm({ name: '', category: filterCat === 'All' ? 'Wedding' : filterCat, price: '', duration: '', deliverables: '', description: '', image: '📸' }); 
+    setForm({ 
+      name: '', 
+      category: initialCat, 
+      subcategory: initialSub,
+      price: '', 
+      duration: '', 
+      deliverables: '', 
+      description: '', 
+      image: '📸' 
+    }); 
     setModalOpen(true); 
   };
   
   const openEdit = (item) => { 
     setEditing(item.id); 
-    setForm({ name: item.name, category: item.category, price: String(item.price), duration: item.duration, deliverables: item.deliverables, description: item.description, image: item.image }); 
+    setForm({ 
+      name: item.name, 
+      category: item.category, 
+      subcategory: item.subcategory || '',
+      price: String(item.price), 
+      duration: item.duration, 
+      deliverables: item.deliverables, 
+      description: item.description, 
+      image: item.image 
+    }); 
     setModalOpen(true); 
   };
   
@@ -50,6 +82,11 @@ export default function Packages() {
       setItems(prev => [...prev, { id: Date.now(), ...form, price: Number(form.price) }]);
     }
     setModalOpen(false);
+  };
+
+  const handleCategoryChange = (cat) => {
+    const firstSub = subcategories.find(s => s.categoryName === cat)?.name || '';
+    setForm({ ...form, category: cat, subcategory: firstSub });
   };
 
   return (
@@ -119,12 +156,19 @@ export default function Packages() {
                 <div className="absolute -top-10 -right-10 w-24 h-24 rounded-full blur-[40px] opacity-0 group-hover:opacity-10 transition-opacity" style={{ backgroundColor: color }} />
                 
                 <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center border border-white/5 bg-[#1a1a1a]">
-                    <img src={pkg.image} alt={pkg.name} className="w-full h-full object-cover" />
+                  <div className="w-12 h-12 rounded-xl border border-white/5 bg-[#1a1a1a] flex items-center justify-center text-[#f5b400] bg-[#f5b400]/5">
+                    <PkgIcon size={24} />
                   </div>
-                  <span className="text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-tighter" style={{ backgroundColor: `${color}15`, color, border: `1px solid ${color}25` }}>
-                    {pkg.category}
-                  </span>
+                  <div className="flex flex-col items-end gap-1.5">
+                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-tighter" style={{ backgroundColor: `${color}15`, color, border: `1px solid ${color}25` }}>
+                      {pkg.category}
+                    </span>
+                    {pkg.subcategory && (
+                      <span className="text-[9px] font-bold text-gray-500 uppercase tracking-widest flex items-center gap-1">
+                        <FolderTree size={10} /> {pkg.subcategory}
+                      </span>
+                    )}
+                  </div>
                 </div>
                 <h3 className="text-base font-bold text-white group-hover:text-[#f5b400] transition-colors">{pkg.name}</h3>
                 <p className="text-xs text-gray-500 mt-2 flex-1 leading-relaxed line-clamp-2">{pkg.description}</p>
@@ -158,20 +202,40 @@ export default function Packages() {
               <p className="text-[10px] text-blue-300 font-bold uppercase tracking-widest">New Package Formulation</p>
            </div>
            
-          {[['Icon/Emoji', 'image', '📸'], ['Package Name', 'name', 'e.g. Royal Wedding'], ['Price (₹)', 'price', 'e.g. 75000'], ['Duration', 'duration', 'e.g. 8 Hours']].map(([label, field, ph]) => (
-            <div key={field}>
-              <label className="block text-[10px] text-gray-500 font-extrabold uppercase mb-1.5 tracking-widest">{label}</label>
-              <input value={form[field]} onChange={e => setForm({ ...form, [field]: e.target.value })}
-                placeholder={ph} className={inputCls} type={field === 'price' ? 'number' : 'text'} />
-            </div>
-          ))}
+          <div className="md:col-span-2">
+            <label className="block text-[10px] text-gray-500 font-extrabold uppercase mb-1.5 tracking-widest">Package Name</label>
+            <input value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
+              placeholder="e.g. Royal Wedding" className={inputCls} />
+          </div>
+
+          <div>
+            <label className="block text-[10px] text-gray-500 font-extrabold uppercase mb-1.5 tracking-widest">Price (₹)</label>
+            <input value={form.price} onChange={e => setForm({ ...form, price: e.target.value })}
+              placeholder="e.g. 75000" className={inputCls} type="number" />
+          </div>
+
+          <div>
+            <label className="block text-[10px] text-gray-500 font-extrabold uppercase mb-1.5 tracking-widest">Duration</label>
+            <input value={form.duration} onChange={e => setForm({ ...form, duration: e.target.value })}
+              placeholder="e.g. 8 Hours" className={inputCls} />
+          </div>
+
           <div>
             <label className="block text-[10px] text-gray-500 font-extrabold uppercase mb-1.5 tracking-widest">Category</label>
-            <select value={form.category} onChange={e => setForm({ ...form, category: e.target.value })} className={inputCls}>
+            <select value={form.category} onChange={e => handleCategoryChange(e.target.value)} className={inputCls}>
               {['Wedding', 'Event', 'Business', 'Drone Show'].map(c => <option key={c}>{c}</option>)}
             </select>
           </div>
+
           <div>
+            <label className="block text-[10px] text-gray-500 font-extrabold uppercase mb-1.5 tracking-widest">Subcategory</label>
+            <select value={form.subcategory} onChange={e => setForm({ ...form, subcategory: e.target.value })} className={inputCls}>
+              <option value="">No Subcategory</option>
+              {availableSubcats.map(s => <option key={s.id} value={s.name}>{s.name}</option>)}
+            </select>
+          </div>
+
+          <div className="md:col-span-2">
             <label className="block text-[10px] text-gray-500 font-extrabold uppercase mb-1.5 tracking-widest">Deliverables</label>
             <input value={form.deliverables} onChange={e => setForm({ ...form, deliverables: e.target.value })} placeholder="e.g. 500 edited photos" className={inputCls} />
           </div>

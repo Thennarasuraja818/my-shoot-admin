@@ -13,6 +13,7 @@ const pageTitles = {
   '/portfolio': 'Portfolio',
   '/users': 'Users',
   '/photographers': 'Photographers',
+  '/promo-codes': 'Promo Codes',
   '/reports': 'Reports & Payments',
   '/settings': 'Settings',
 };

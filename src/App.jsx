@@ -9,6 +9,7 @@ import DroneEnquiries from './pages/DroneEnquiries';
 import Portfolio from './pages/Portfolio';
 import Users from './pages/Users';
 import Photographers from './pages/Photographers';
+import PromoCodes from './pages/PromoCodes';
 import Reports from './pages/Reports';
 import Settings from './pages/Settings';
 
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="portfolio" element={<Portfolio />} />
           <Route path="users" element={<Users />} />
           <Route path="photographers" element={<Photographers />} />
+          <Route path="promo-codes" element={<PromoCodes />} />
           <Route path="reports" element={<Reports />} />
           <Route path="settings" element={<Settings />} />
         </Route>

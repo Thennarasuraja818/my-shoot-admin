@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #f5b400; /* Golden / yellow accent */
+  --color-primary-hover: #e0a300;
+  
+  --color-dark-bg: #0f0f0f; /* Main background */
+  --color-dark-surface: #1a1a1a; /* Cards, sidebar */
+  --color-dark-surface-hover: #262626;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #9ca3af;
+  --color-border: #333333;
+  
+  /* Status Colors */
+  --color-status-pending: #eab308;
+  --color-status-confirmed: #22c55e;
+  --color-status-completed: #3b82f6;
+  --color-status-cancelled: #ef4444;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  body {
+    @apply bg-dark-bg text-text-primary font-sans antialiased;
+  }
+
+  /* Custom generic styles */
+  .card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+}

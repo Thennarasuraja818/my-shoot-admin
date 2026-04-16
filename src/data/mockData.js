@@ -150,3 +150,10 @@ export const promoCodes = [
   { id: 2, code: 'LOYALTY1000', type: 'Fixed', value: 1000, expiry: '2026-06-30', usageLimit: 10, usedCount: 2, target: 'Selected Users', status: 'Active' },
   { id: 3, code: 'SUMMER20', type: 'Percentage', value: 20, expiry: '2026-05-31', usageLimit: 500, usedCount: 0, target: 'All Users', status: 'Inactive' },
 ];
+
+export const banners = [
+  { id: 1, title: 'Summer Collection 2026', image: 'https://images.unsplash.com/photo-1542038783-0addec3cda46?q=80&w=2070&auto=format&fit=crop', status: 'Active' },
+  { id: 2, title: 'New Drone Services', image: 'https://images.unsplash.com/photo-1473960104372-7bc093ce18fc?q=80&w=2070&auto=format&fit=crop', status: 'Active' },
+];
+
+

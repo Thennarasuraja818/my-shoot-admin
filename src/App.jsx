@@ -12,6 +12,7 @@ import Photographers from './pages/Photographers';
 import PromoCodes from './pages/PromoCodes';
 import Reports from './pages/Reports';
 import Settings from './pages/Settings';
+import Banners from './pages/Banners';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -33,9 +34,11 @@ export default function App() {
           <Route path="photographers" element={<Photographers />} />
           <Route path="promo-codes" element={<PromoCodes />} />
           <Route path="reports" element={<Reports />} />
+          <Route path="banners" element={<Banners />} />
           <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>
     </BrowserRouter>
   );
 }
+

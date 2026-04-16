@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Search, Bell, ChevronDown, Menu, User, LogOut, Settings } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header({ onMenuClick, title }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <header className="sticky top-0 z-20 h-16 flex items-center justify-between px-4 md:px-6 bg-[#0f0f0f]/90 backdrop-blur-md border-b border-[#2a2a2a]">
@@ -68,7 +70,7 @@ export default function Header({ onMenuClick, title }) {
                     <Settings size={14} /> Settings
                   </button>
                   <div className="border-t border-[#2a2a2a] my-1" />
-                  <button className="flex items-center gap-3 w-full px-4 py-2 text-sm text-red-400 hover:text-red-300 hover:bg-white/5">
+                  <button className="flex items-center gap-3 w-full px-4 py-2 text-sm text-red-400 hover:text-red-300 hover:bg-white/5" onClick={() => navigate('/')}>
                     <LogOut size={14} /> Logout
                   </button>
                 </div>

@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 
 const navItems = [
-  { path: '/', label: 'Dashboard', icon: LayoutDashboard },
+  { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { path: '/calendar', label: 'Calendar', icon: Calendar },
   { path: '/categories', label: 'Categories', icon: Tag },
   { path: '/packages', label: 'Packages', icon: Package },

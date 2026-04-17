@@ -6,13 +6,13 @@ import {
 
 const navItems = [
   { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { path: '/banners', label: 'Banners', icon: Monitor },
   { path: '/calendar', label: 'Calendar', icon: Calendar },
   { path: '/categories', label: 'Categories', icon: Tag },
   { path: '/packages', label: 'Packages', icon: Package },
   { path: '/bookings', label: 'Bookings', icon: BookOpen },
   { path: '/drone-enquiries', label: 'Drone Enquiries', icon: Wind },
   { path: '/portfolio', label: 'Portfolio', icon: Image },
-  { path: '/banners', label: 'Banners', icon: Monitor },
   { path: '/users', label: 'Users', icon: Users },
   { path: '/photographers', label: 'Photographers', icon: Camera },
   { path: '/promo-codes', label: 'Promo Codes', icon: Ticket },

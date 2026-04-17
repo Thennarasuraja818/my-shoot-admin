@@ -32,53 +32,53 @@ export const bookingsByCategory = [
 ];
 
 export const bookings = [
-  { 
-    id: 'BK001', customer: 'Priya Sharma', phone: '9876543210', category: 'Wedding', 
-    package: 'Royal Wedding', date: '2026-04-15', location: 'Chennai', 
+  {
+    id: 'BK001', customer: 'Priya Sharma', phone: '9876543210', category: 'Wedding',
+    package: 'Royal Wedding', date: '2026-04-15', location: 'Chennai',
     paymentStatus: 'Advance Paid', status: 'Confirmed',
-    totalAmount: 150000, advancePaid: 50000, assignedPhotographerId: 1 
+    totalAmount: 150000, advancePaid: 50000, assignedPhotographerId: 1
   },
-  { 
-    id: 'BK002', customer: 'Rahul Verma', phone: '9123456789', category: 'Event', 
-    package: 'Corporate Event', date: '2026-04-18', location: 'Bangalore', 
+  {
+    id: 'BK002', customer: 'Rahul Verma', phone: '9123456789', category: 'Event',
+    package: 'Corporate Event', date: '2026-04-18', location: 'Bangalore',
     paymentStatus: 'Fully Paid', status: 'Confirmed',
-    totalAmount: 35000, advancePaid: 35000, assignedPhotographerId: 2 
+    totalAmount: 35000, advancePaid: 35000, assignedPhotographerId: 2
   },
-  { 
-    id: 'BK003', customer: 'Ananya Kris', phone: '9012345678', category: 'Business', 
-    package: 'Brand Shoot', date: '2026-04-20', location: 'Mumbai', 
+  {
+    id: 'BK003', customer: 'Ananya Kris', phone: '9012345678', category: 'Business',
+    package: 'Brand Shoot', date: '2026-04-20', location: 'Mumbai',
     paymentStatus: 'Pending', status: 'Pending',
-    totalAmount: 45000, advancePaid: 0, assignedPhotographerId: null 
+    totalAmount: 45000, advancePaid: 0, assignedPhotographerId: null
   },
-  { 
-    id: 'BK004', customer: 'Vikram Singh', phone: '8901234567', category: 'Drone Show', 
-    package: 'Aerial Magic', date: '2026-04-22', location: 'Delhi', 
+  {
+    id: 'BK004', customer: 'Vikram Singh', phone: '8901234567', category: 'Drone Show',
+    package: 'Aerial Magic', date: '2026-04-22', location: 'Delhi',
     paymentStatus: 'Advance Paid', status: 'Confirmed',
-    totalAmount: 180000, advancePaid: 90000, assignedPhotographerId: 3 
+    totalAmount: 180000, advancePaid: 90000, assignedPhotographerId: 3
   },
-  { 
-    id: 'BK005', customer: 'Kavitha Rajan', phone: '7890123456', category: 'Wedding', 
-    package: 'Classic Wedding', date: '2026-04-25', location: 'Hyderabad', 
+  {
+    id: 'BK005', customer: 'Kavitha Rajan', phone: '7890123456', category: 'Wedding',
+    package: 'Classic Wedding', date: '2026-04-25', location: 'Hyderabad',
     paymentStatus: 'Fully Paid', status: 'Completed',
-    totalAmount: 75000, advancePaid: 75000, assignedPhotographerId: null 
+    totalAmount: 75000, advancePaid: 75000, assignedPhotographerId: null
   },
-  { 
-    id: 'BK006', customer: 'Arjun Nair', phone: '6789012345', category: 'Event', 
-    package: 'Birthday Bash', date: '2026-04-28', location: 'Pune', 
+  {
+    id: 'BK006', customer: 'Arjun Nair', phone: '6789012345', category: 'Event',
+    package: 'Birthday Bash', date: '2026-04-28', location: 'Pune',
     paymentStatus: 'Pending', status: 'Pending',
-    totalAmount: 20000, advancePaid: 0, assignedPhotographerId: null 
+    totalAmount: 20000, advancePaid: 0, assignedPhotographerId: null
   },
-  { 
-    id: 'BK007', customer: 'Deepika Menon', phone: '5678901234', category: 'Business', 
-    package: 'Product Shoot', date: '2026-05-01', location: 'Kochi', 
+  {
+    id: 'BK007', customer: 'Deepika Menon', phone: '5678901234', category: 'Business',
+    package: 'Product Shoot', date: '2026-05-01', location: 'Kochi',
     paymentStatus: 'Fully Paid', status: 'Completed',
-    totalAmount: 25000, advancePaid: 25000, assignedPhotographerId: 3 
+    totalAmount: 25000, advancePaid: 25000, assignedPhotographerId: 3
   },
-  { 
-    id: 'BK008', customer: 'Suresh Kumar', phone: '4567890123', category: 'Wedding', 
-    package: 'Platinum Wedding', date: '2026-05-05', location: 'Chennai', 
+  {
+    id: 'BK008', customer: 'Suresh Kumar', phone: '4567890123', category: 'Wedding',
+    package: 'Platinum Wedding', date: '2026-05-05', location: 'Chennai',
     paymentStatus: 'Advance Paid', status: 'Reviewed',
-    totalAmount: 250000, advancePaid: 100000, assignedPhotographerId: 1 
+    totalAmount: 250000, advancePaid: 100000, assignedPhotographerId: 1
   },
 ];
 
@@ -105,10 +105,58 @@ export const categories = [
 ];
 
 export const packages = [
-  { id: 1, name: 'Classic Wedding', category: 'Wedding', price: 75000, duration: '8 Hours', deliverables: '500 edited photos + 1 highlight reel', description: 'A timeless wedding photography package with two photographers.', image: '/assets/wedding.png' },
-  { id: 2, name: 'Royal Wedding', category: 'Wedding', price: 150000, duration: '2 Days', deliverables: '1000 edited photos + Full video + Album', description: 'Our premium all-inclusive wedding photography and videography package.', image: '/assets/wedding.png' },
-  { id: 3, name: 'Corporate Event', category: 'Event', price: 35000, duration: '6 Hours', deliverables: '300 edited photos', description: 'Professional corporate event documentation package.', image: '/assets/event.png' },
-  { id: 4, name: 'Aerial Magic', category: 'Drone Show', price: 180000, duration: '1 Night', deliverables: '100-drone light show + Aerial video', description: 'A stunning 100-drone light show with choreographed aerial display.', image: '/assets/drone.png' },
+  {
+    id: 1,
+    name: 'Classic Wedding',
+    category: 'Wedding',
+    price: 75000,
+    duration: '8 Hours',
+    deliverables: [
+      { item: 'Edited Photos', qty: '500' },
+      { item: 'Highlight Reel', qty: '1' }
+    ],
+    description: 'A timeless wedding photography package with two photographers.',
+    image: '/assets/wedding.png'
+  },
+  {
+    id: 2,
+    name: 'Royal Wedding',
+    category: 'Wedding',
+    price: 150000,
+    duration: '2 Days',
+    deliverables: [
+      { item: 'Edited Photos', qty: '1000' },
+      { item: 'Video', qty: 'Full' },
+      { item: 'Premium Album', qty: '1' }
+    ],
+    description: 'Our premium all-inclusive wedding photography and videography package.',
+    image: '/assets/wedding.png'
+  },
+  {
+    id: 3,
+    name: 'Corporate Event',
+    category: 'Event',
+    price: 35000,
+    duration: '6 Hours',
+    deliverables: [
+      { item: 'Edited Photos', qty: '300' }
+    ],
+    description: 'Professional corporate event documentation package.',
+    image: '/assets/event.png'
+  },
+  {
+    id: 4,
+    name: 'Aerial Magic',
+    category: 'Drone Show',
+    price: 180000,
+    duration: '1 Night',
+    deliverables: [
+      { item: 'Drone Light Show', qty: '100' },
+      { item: 'Aerial Video', qty: '4K' }
+    ],
+    description: 'A stunning 100-drone light show with choreographed aerial display.',
+    image: '/assets/drone.png'
+  },
 ];
 
 export const users = [

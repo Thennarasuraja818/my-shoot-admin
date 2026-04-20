@@ -167,10 +167,10 @@ export const users = [
 ];
 
 export const photographers = [
-  { id: 1, name: 'Aakash Raj', phone: '9988776655', email: 'aakash@myshoot.in', specialization: 'Wedding', skills: ['Candid', 'Portrait', 'Cinema'], shoots: 45, rating: 4.9, status: 'Available' },
-  { id: 2, name: 'Sneha Pillai', phone: '8877665544', email: 'sneha@myshoot.in', specialization: 'Event', skills: ['Stage', 'Traditional', 'Candid'], shoots: 38, rating: 4.7, status: 'Booked' },
-  { id: 3, name: 'Karthik V', phone: '7766554433', email: 'karthik@myshoot.in', specialization: 'Business', skills: ['Commercial', 'Product', 'Portrait'], shoots: 62, rating: 4.8, status: 'Available' },
-  { id: 4, name: 'Divya Nair', phone: '6655443322', email: 'divya@myshoot.in', specialization: 'Wedding', skills: ['Traditional', 'Outdoor', 'Portrait'], shoots: 29, rating: 4.6, status: 'Leave' },
+  { id: 1, name: 'Aakash Raj', phone: '9988776655', email: 'aakash@myshoot.in', specializations: ['Wedding'], skills: ['Candid', 'Portrait', 'Cinema'], project_count: 45, rating: 4.9, rating_count: 124, is_active: true, profile_pic: '' },
+  { id: 2, name: 'Sneha Pillai', phone: '8877665544', email: 'sneha@myshoot.in', specializations: ['Event'], skills: ['Stage', 'Traditional', 'Candid'], project_count: 38, rating: 4.7, rating_count: 86, is_active: true, profile_pic: '' },
+  { id: 3, name: 'Karthik V', phone: '7766554433', email: 'karthik@myshoot.in', specializations: ['Business'], skills: ['Commercial', 'Product', 'Portrait'], project_count: 62, rating: 4.8, rating_count: 245, is_active: true, profile_pic: '' },
+  { id: 4, name: 'Divya Nair', phone: '6655443322', email: 'divya@myshoot.in', specializations: ['Wedding'], skills: ['Traditional', 'Outdoor', 'Portrait'], project_count: 29, rating: 4.6, rating_count: 52, is_active: false, profile_pic: '' },
 ];
 
 export const calendarEvents = [
@@ -197,6 +197,8 @@ export const promoCodes = [
   { id: 1, code: 'WELCOME50', type: 'Percentage', value: 50, expiry: '2026-12-31', usageLimit: 100, usedCount: 45, target: 'All Users', status: 'Active' },
   { id: 2, code: 'LOYALTY1000', type: 'Fixed', value: 1000, expiry: '2026-06-30', usageLimit: 10, usedCount: 2, target: 'Selected Users', status: 'Active' },
   { id: 3, code: 'SUMMER20', type: 'Percentage', value: 20, expiry: '2026-05-31', usageLimit: 500, usedCount: 0, target: 'All Users', status: 'Inactive' },
+  { id: 4, code: 'EXPIRED2024', type: 'Percentage', value: 15, expiry: '2024-01-01', usageLimit: 100, usedCount: 10, target: 'All Users', status: 'Active' },
+  { id: 5, code: 'FLASH100', type: 'Fixed', value: 100, expiry: '2026-12-31', usageLimit: 50, usedCount: 50, target: 'All Users', status: 'Active' },
 ];
 
 export const banners = [

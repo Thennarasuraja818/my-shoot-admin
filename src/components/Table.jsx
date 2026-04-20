@@ -1,4 +1,6 @@
 export function StatusBadge({ status, isIconOnly = false }) {
+  const displayStatus = typeof status === 'boolean' ? (status ? 'Active' : 'Inactive') : status;
+  
   const map = {
     // Member Status
     Active: 'bg-green-500/10 text-green-400 border-green-500/20',
@@ -24,31 +26,24 @@ export function StatusBadge({ status, isIconOnly = false }) {
     // Enquiry
     Contacted: 'bg-sky-500/10 text-sky-400 border-sky-500/20',
     Converted: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-    
-    // Photographer
-    Available: 'bg-green-500/10 text-green-400 border-green-500/20',
-    Booked: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-    Leave: 'bg-slate-500/10 text-slate-400 border-slate-500/20',
   };
   
   const dotColors = {
-    Available: 'bg-green-500',
-    Booked: 'bg-amber-500',
-    Leave: 'bg-slate-400',
     Active: 'bg-green-500',
+    Inactive: 'bg-gray-400',
     Pending: 'bg-amber-500',
     Confirmed: 'bg-emerald-500',
   };
 
   if (isIconOnly) {
-    const dotColor = dotColors[status] || 'bg-gray-500';
-    return <div className={`w-2 h-2 rounded-full ${dotColor} shadow-[0_0_8px_rgba(0,0,0,0.5)]`} title={status} />;
+    const dotColor = dotColors[displayStatus] || 'bg-gray-500';
+    return <div className={`w-2 h-2 rounded-full ${dotColor} shadow-[0_0_8px_rgba(0,0,0,0.5)]`} title={displayStatus} />;
   }
 
-  const cls = map[status] || 'bg-gray-500/10 text-gray-400 border-gray-500/20';
+  const cls = map[displayStatus] || 'bg-gray-500/10 text-gray-400 border-gray-500/20';
   return (
     <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-black border uppercase tracking-widest ${cls}`}>
-      {status}
+      {displayStatus}
     </span>
   );
 }
